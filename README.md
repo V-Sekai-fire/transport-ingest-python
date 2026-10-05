@@ -11,9 +11,10 @@ The C transports run one QUIC stack on both ends, so nothing in them shows that 
 ```sh
 pixi run check
 pixi run selftest
+pixi run serve
 ```
 
-`check` runs the conformance gate and `selftest` shows it failing on planted input.
+`check` runs the conformance gate and `selftest` shows it failing on planted input. `serve` runs the receiver and needs `cert.pem` and `key.pem` in the working directory.
 
 ## Licence
 
