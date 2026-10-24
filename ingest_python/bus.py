@@ -3,7 +3,7 @@
 Everything else here holds bytes and a session. Keeping the bus behind one module is what makes
 the choice of binding reversible: the rest of the fabric reaches iceoryx2 through a dlsym
 dispatch table generated from `iceoryx2.sigs`, because iceoryx2 is Rust and weft links no Rust,
-and this repository uses the prebuilt Python wheel instead. RFD 0123 records that departure. If
+and this repository uses the prebuilt Python wheel instead. RFD66606-0123 records that departure. If
 it is reversed, this file is what changes.
 
 Two facts about the service registration are contracts rather than choices. The payload type is
@@ -30,9 +30,9 @@ MAX_SEND_BYTES = 180000
 
 # How many samples a subscriber holds before the oldest is overwritten. iceoryx2 defaults this
 # to 2, which loses the first of three sends before a reader ever runs -- measured, not assumed.
-# Safe overflow stays on, so a lagging reader never stalls the writer, which is RFD 0108's rule.
+# Safe overflow stays on, so a lagging reader never stalls the writer, which is RFD66606-0108's rule.
 # The cost is that an overwrite is silent: the header carries a node and publisher id and no
-# sequence number, so nothing here can tell a dropped sample from one never sent. RFD 0049 lets
+# sequence number, so nothing here can tell a dropped sample from one never sent. RFD66606-0049 lets
 # a state channel drop, which is what this one is.
 SUBSCRIBER_BUFFER = 256
 
@@ -78,7 +78,7 @@ class Bus:
     def receive(self) -> bytes | None:
         """The next sample, or None when the queue is empty. Never blocks.
 
-        Polling rather than blocking is deliberate. RFD 0096 measured a busy-polled
+        Polling rather than blocking is deliberate. RFD66606-0096 measured a busy-polled
         shared-memory ring failing to finish 20000 round trips in over 8 minutes on a one-vCPU
         Fly machine, so a caller drives this from its own loop and decides how often.
         """

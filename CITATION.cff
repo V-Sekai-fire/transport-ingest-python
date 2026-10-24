@@ -44,7 +44,7 @@ references:
       The QUIC and HTTP/3 stack this terminates on, including its own TLS 1.3.
       Written in Python from the RFCs and sharing no code with picoquic, which
       is the property that makes this a second opinion rather than a second
-      copy. RFD 0123 records why it was chosen over binding picoquic.
+      copy. RFD66606-0123 records why it was chosen over binding picoquic.
 
   - type: software
     title: "Eclipse iceoryx2: lock-free zero-copy inter-process communication"
@@ -56,7 +56,7 @@ references:
     url: "https://github.com/eclipse-iceoryx/iceoryx2"
     notes: >
       The ring. Reached here through the prebuilt Python wheel rather than the
-      dlsym stub table the C repositories generate from iceoryx2.sigs; RFD 0123
+      dlsym stub table the C repositories generate from iceoryx2.sigs; RFD66606-0123
       records that departure.
 
   - type: software

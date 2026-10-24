@@ -4,7 +4,7 @@ A second, independent receiver for the fabric's unreliable input datagrams, chec
 
 ## What it is for
 
-The C transports run one QUIC stack on both ends, so nothing in them shows that the wire contract is implementable from its specification. This receiver uses a QUIC and TLS stack that shares no code with them, and where the two disagree, one of them is wrong about the contract. It holds no authority and keeps no state. The packet layout is emitted by `contract-entity-packet` and vendored here, never edited. RFD 2123 owns the topic.
+The C transports run one QUIC stack on both ends, so nothing in them shows that the wire contract is implementable from its specification. This receiver uses a QUIC and TLS stack that shares no code with them, and where the two disagree, one of them is wrong about the contract. It holds no authority and keeps no state. The packet layout is emitted by `contract-entity-packet` and vendored here, never edited. RFD66606-2123 owns the topic.
 
 ## Build and run
 

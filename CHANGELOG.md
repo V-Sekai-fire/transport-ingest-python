@@ -14,7 +14,7 @@ Decisions and completed, verified work.
 
 ### Added
 
-- The repository, per RFD 0123: a second implementation of the unreliable half of the fabric's
+- The repository, per RFD66606-0123: a second implementation of the unreliable half of the fabric's
   WebTransport contract, on `pywebtransport` 0.20.1 and `iceoryx2` 0.9.3.
 - `conformance.py`, which holds the emitted Python codec to all 64 golden vectors from
   `contract-entity-packet` and carries a `--self-test` negative control.
@@ -42,7 +42,7 @@ Decisions and completed, verified work.
 
 - The stack is `aioquic` 1.3.0 rather than `pywebtransport` 0.20.1. `aioquic` implements QUIC and
   TLS 1.3 in Python from the RFCs and shares no code with picoquic, so the second-opinion property
-  RFD 0123 rests on is unchanged, and it loads EC keys.
+  RFD66606-0123 rests on is unchanged, and it loads EC keys.
 - The server accepts an EC or an RSA key. A live session with a P-256 server key answers CONNECT
   with `:status 200`, which the previous stack could not do at all.
 

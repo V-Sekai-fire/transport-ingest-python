@@ -19,7 +19,7 @@ the first tests whether two people can copy a number. `CLAUDE.md` carries the ru
 
 ## webtransportd
 
-RFD 0047 proposed a standalone bridge piping a session's bytes to a child over stdin and
+RFD66606-0047 proposed a standalone bridge piping a session's bytes to a child over stdin and
 stdout, and abandoned it. `datasource-queen`'s `CLAUDE.md` still says "Do not propose
 `webtransportd`. The Queen terminates QUIC in her own process." This repository terminates in
 its own process for the same reason.

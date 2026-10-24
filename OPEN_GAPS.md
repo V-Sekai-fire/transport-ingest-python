@@ -76,13 +76,13 @@ nothing here yet catches an endpoint claiming unreliable-ordered and not deliver
 three sends silently overwrites the first. Measured on 2026-08-17: three records published in a
 burst arrived as two, and the missing one was the oldest.
 
-`bus.py` now sets the buffer to 256 explicitly, and safe overflow stays on because RFD 0108
+`bus.py` now sets the buffer to 256 explicitly, and safe overflow stays on because RFD66606-0108
 requires that a lagging reader never stall the writer. That makes an overwrite rare rather than
 impossible, and it stays silent: `HeaderPublishSubscribe` carries a node id, a publisher id and
 an element count, and no sequence number, so nothing here can tell a dropped sample from one that
 was never sent.
 
-RFD 0108 says a subscriber whose cursor falls out of the ring "receives a resync signal rather
+RFD66606-0108 says a subscriber whose cursor falls out of the ring "receives a resync signal rather
 than a gap". No such signal exists here, and adding one means a sequence number this repository
 would have to define, which is a wire decision rather than a transport one.
 
@@ -100,4 +100,4 @@ mismatch. The gate itself has no such check.
 private key as RSA, ECDSA, or EdDSA" and accepted only RSA-2048, while `contract-wt` records the
 Godot demo server generating a fresh P-256 certificate every run. `aioquic` loads P-256, P-384
 and RSA-2048 alike, and a live session with a P-256 server key answers CONNECT with `:status 200`.
-RFD 0123 records the swap.
+RFD66606-0123 records the swap.
